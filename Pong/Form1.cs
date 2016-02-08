@@ -60,6 +60,9 @@ namespace Pong
 
         //brush for paint method
         SolidBrush drawBrush = new SolidBrush(Color.White);
+        Graphics formGraphics = this.CreateGraphics();
+
+
 
         #endregion
 
@@ -143,7 +146,8 @@ namespace Pong
             SetParameters();
 
             // TODO create code to make a graphics object, a brush, and a font to display the countdown
-
+            Font drawFont = new Font("Arial", 16);
+            formGraphics.DrawString("Hello", drawFont, drawBrush, 50, 40);
             startLabel.Visible = false;
             Refresh();
             
@@ -179,8 +183,10 @@ namespace Pong
 
             }
 
-            // TODO set starting X position for ball to middle of screen, (use this.Width and BALL_SIZE)
-            // TODO set starting Y position for ball to middle of screen, (use this.Height and BALL_SIZE)
+            //set starting X position for ball to middle of screen, (use this.Width and BALL_SIZE)
+            ballX = this.Width / 2;
+            //set starting Y position for ball to middle of screen, (use this.Height and BALL_SIZE)
+            ballY = this.Height / 2;
 
         }
 
@@ -292,10 +298,13 @@ namespace Pong
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            // TODO draw paddles using FillRectangle
+            // draw paddles using FillRectangle
+            e.Graphics.FillRectangle(drawBrush, PADDLE_EDGE, paddle1Y, PADDLE_WIDTH, PADDLE_LENGTH);
+            e.Graphics.FillRectangle(drawBrush, this.Width - PADDLE_WIDTH - PADDLE_EDGE, paddle2Y, PADDLE_WIDTH, PADDLE_LENGTH);
 
 
-            // TODO draw ball using FillRectangle
+            // draw ball using FillRectangle
+            e.Graphics.FillRectangle(drawBrush, ballX, ballY, BALL_SIZE, BALL_SIZE);
 
         }
 
