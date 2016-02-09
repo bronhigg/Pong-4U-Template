@@ -214,21 +214,21 @@ namespace Pong
             //move ball either left or right based on ballMoveRight and BALL_SPEED
             if (ballMoveRight == true)
             {
-                ballX = +BALL_SPEED;
+                ballX += BALL_SPEED;
             }
             else 
             {
-                ballX = -BALL_SPEED;
+                ballX -= BALL_SPEED;
             }
 
             //move ball either down or up based on ballMoveDown and BALL_SPEED
             if (ballMoveDown ==true)
             {
-                ballY = +BALL_SPEED;
+                ballY += BALL_SPEED;
             }
             else
             {
-                ballY = -BALL_SPEED;
+                ballY -= BALL_SPEED;
             }
             #endregion
 
